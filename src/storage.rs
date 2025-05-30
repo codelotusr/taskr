@@ -5,7 +5,6 @@ pub fn init_db(conn: &Connection) -> Result<(), SqliteError> {
         "CREATE TABLE IF NOT EXISTS task (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
-        due_date TEXT,
         completed INTEGER NOT NULL
         )",
         [],
