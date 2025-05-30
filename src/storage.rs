@@ -1,8 +1,8 @@
-use rusqlite::Connection;
+use rusqlite::{Connection, Error as SqliteError};
 
-pub fn init_db(conn: &Connection) -> Result<(), Box<dyn std::error::Error>> {
+pub fn init_db(conn: &Connection) -> Result<(), SqliteError> {
     conn.execute(
-        "CREATE TABLE task (
+        "CREATE TABLE IF NOT EXISTS task (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
         due_date TEXT,
